@@ -1,6 +1,6 @@
 #include "Dwarf.h"
 
-#include <utility>
+#include "Utility.h"
 
 //Dwarf::Dwarf
 Dwarf::Dwarf(std::string name, int hp, int armor) :
@@ -15,6 +15,6 @@ const std::string& Dwarf::getName()
 //Dwarf::getStats
 std::string Dwarf::getStats()
 {
-    return std::string();
+    return getCharacterStats(this);
 }
 
