@@ -64,4 +64,6 @@ private:
     std::unique_ptr<int> initialHitPoints, initialArmorLevel, initialAttackDamage;
     
     void attackInternal(Character& other);
+
+    static void updateStat(int &currentValue, std::unique_ptr<int> &initialValue);
 };
