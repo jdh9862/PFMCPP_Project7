@@ -112,7 +112,8 @@ void Character::updateStat(int &currentValue, std::unique_ptr<int> &initialValue
     {
         currentValue = *initialValue;
     }
-    initialValue = std::make_unique<int>(1.1f * *initialValue);
+    currentValue *= 1.1f;
+    initialValue = std::make_unique<int>(currentValue);
 }
 
 void Character::printStats()
