@@ -9,6 +9,8 @@ Paladin::Paladin(std::string name, int hp, int armor) :
     defensiveItems = makeDefensiveItems(int(random() % 3 + 1));
 }
 
+Paladin::~Paladin() { }
+
 //Paladin::getName
 const std::string& Paladin::getName()
 {

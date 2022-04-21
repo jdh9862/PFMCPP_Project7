@@ -12,6 +12,8 @@ DragonSlayer::DragonSlayer(std::string name, int hp, int armor) :
 
 }
 
+DragonSlayer::~DragonSlayer() { }
+
 //DragonSlayer::getName
 const std::string& DragonSlayer::getName()
 {

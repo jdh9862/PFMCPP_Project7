@@ -6,6 +6,8 @@ struct Dragon : Character
 {
     Dragon(std::string name, int hp, int armor);
 
+    ~Dragon() override;
+
     const std::string & getName() override;
 
     std::string getStats() override;
