@@ -3,8 +3,8 @@
 #include "Utility.h"
 
 //Dragon::Dragon
-Dragon::Dragon(std::string name, int hp, int armor) :
-        Character(hp, armor, 80), name(std::move(name)) {}
+Dragon::Dragon(std::string name_, int hp_, int armor_) :
+        Character(hp_, armor_, 80), name(std::move(name_)) {}
 
 Dragon::~Dragon() = default;
 

@@ -4,8 +4,8 @@
 #include <random>
 
 //DragonSlayer::DragonSlayer
-DragonSlayer::DragonSlayer(std::string name, int hp, int armor) :
-        Character(hp, armor, 4), name(std::move(name))
+DragonSlayer::DragonSlayer(std::string name_, int hp_, int armor_) :
+        Character(hp_, armor_, 4), name(std::move(name_))
 {
     helpfulItems = makeHelpfulItems(int(random() % 3 + 1));
     defensiveItems = makeDefensiveItems(int(random() % 3 + 1));

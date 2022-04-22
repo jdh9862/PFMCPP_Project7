@@ -52,14 +52,14 @@ void useDefensiveItem(Character *character, Item &item)
     //dwarves, paladins, and DragonSlayers get extra boosts from defensive item.
     if (auto *dwarf = dynamic_cast<Dwarf *>(character))
     {
-        dwarf->boostArmor(item.getBoost() * 1.1);
+        dwarf->boostArmor(int(item.getBoost() * 1.1));
     } else if (auto *paladin = dynamic_cast<Paladin *>(character))
     {
         //same with paladins
-        paladin->boostArmor(item.getBoost() * 1.3);
+        paladin->boostArmor(int(item.getBoost() * 1.3));
     } else if (auto *dragonSlayer = dynamic_cast<DragonSlayer *>(character))
     {
-        dragonSlayer->boostArmor(item.getBoost() * 1.5);
+        dragonSlayer->boostArmor(int(item.getBoost() * 1.5));
     } else if (dynamic_cast<Dragon *>(character))
     {
         //dragons don't need defensive items
@@ -73,10 +73,10 @@ void useHelpfulItem(Character *character, Item *item)
         dwarf->boostHitPoints(item->getBoost() * 2);
     } else if (auto *paladin = dynamic_cast<Paladin *>(character))
     {
-        paladin->boostHitPoints(item->getBoost() * 1.5);
+        paladin->boostHitPoints(int(item->getBoost() * 1.5));
     } else if (auto *dragonSlayer = dynamic_cast<DragonSlayer *>(character))
     {
-        dragonSlayer->boostHitPoints(item->getBoost() * 1.25);
+        dragonSlayer->boostHitPoints(int(item->getBoost() * 1.25));
     } else if (dynamic_cast<Dragon *>(character))
     {
         //dragons don't carry helpful items!
@@ -87,10 +87,10 @@ void useAttackItem(Character *character, Item *item)
 {
     if (auto *dwarf = dynamic_cast<Dwarf *>(character))
     {
-        dwarf->boostAttackDamage(item->getBoost() * 1.5);
+        dwarf->boostAttackDamage(int(item->getBoost() * 1.5));
     } else if (auto *paladin = dynamic_cast<Paladin *>(character))
     {
-        paladin->boostAttackDamage(item->getBoost() * 1.33);
+        paladin->boostAttackDamage(int(item->getBoost() * 1.33));
     } else if (auto *dragonSlayer = dynamic_cast<DragonSlayer *>(character))
     {
         //DragonSlayers get a 10x boost when attacking dragons, from their attack item.
