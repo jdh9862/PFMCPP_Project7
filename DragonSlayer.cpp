@@ -12,27 +12,27 @@ DragonSlayer::DragonSlayer(std::string name, int hp, int armor) :
 
 }
 
-DragonSlayer::~DragonSlayer() { }
+DragonSlayer::~DragonSlayer() = default;
 
 //DragonSlayer::getName
-const std::string& DragonSlayer::getName()
+const std::string &DragonSlayer::getName()
 {
     return name;
 }
 
-void DragonSlayer::attack(Character& other)
+void DragonSlayer::attack(Character &other)
 {
     std::cout << name << " is attacking " << other.getName() << " !!" << std::endl;
-    if( auto* dragon = dynamic_cast<Dragon*>(&other) )
+    if (auto *dragon = dynamic_cast<Dragon *>(&other))
     {
         //DragonSlayers get a 10x boost when attacking dragons, from their attack item.
         //so they should USE their attack item before attacking the dragon... 
         //note: they should only use the item if the dragon's hitpoints are > 0...
         //note: items are single-use only, so you need to reset it after use.  
         //look in the Character class for how the other item types are reset after use.
-        while( dragon->getHP() > 0 )
+        while (dragon->getHP() > 0)
         {
-            if(dynamic_cast<AttackItem*>(attackItem.get()) )
+            if (dynamic_cast<AttackItem *>(attackItem.get()))
             {
                 attackItem->use(this);
                 attackItem.reset(); //can only be used once!
@@ -40,9 +40,9 @@ void DragonSlayer::attack(Character& other)
             dragon->takeDamage(attackDamage);
         }
     }
-        
+
     Character::attack(other);
-        
+
 }
 
 //DragonSlayer::getStats

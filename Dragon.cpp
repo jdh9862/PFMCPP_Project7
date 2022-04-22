@@ -6,24 +6,23 @@
 Dragon::Dragon(std::string name, int hp, int armor) :
         Character(hp, armor, 80), name(std::move(name)) {}
 
-Dragon::~Dragon() { }
+Dragon::~Dragon() = default;
 
 void Dragon::attack(Character &other)
 {
     std::cout << name << " is attacking " << other.getName() << "!!!" << std::endl;
-    if( auto* slayer = dynamic_cast<DragonSlayer*>(&other) )
+    if (auto *slayer = dynamic_cast<DragonSlayer *>(&other))
     {
         //dragons can't attack dragon slayers
         slayer->defend();
-    }
-    else
+    } else
     {
         Character::attack(other);
     }
 }
 
 //Dragon::getName
-const std::string& Dragon::getName()
+const std::string &Dragon::getName()
 {
     return name;
 }

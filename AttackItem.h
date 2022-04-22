@@ -3,7 +3,7 @@
 
 struct AttackItem : Item
 {
-    AttackItem() : Item("attack item", 10) { }
+    AttackItem() : Item("attack item", 10) {}
 
-    void use(Character* character) override;
+    void use(Character *character) override;
 };
