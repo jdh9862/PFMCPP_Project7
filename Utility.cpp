@@ -34,7 +34,7 @@ std::vector<std::unique_ptr<Item>> makeDefensiveItems(int num)
     return items;
 }
 
-std::string getCharacterStats(Character *ch)
+std::string getCharacterStats(Character* ch)
 {
     std::string str;
 
@@ -47,58 +47,58 @@ std::string getCharacterStats(Character *ch)
     return str;
 }
 
-void useDefensiveItem(Character *character, Item &item)
+void useDefensiveItem(Character* character, Item &item)
 {
     //dwarves, paladins, and DragonSlayers get extra boosts from defensive item.
-    if (auto *dwarf = dynamic_cast<Dwarf *>(character))
+    if (auto* dwarf = dynamic_cast<Dwarf*>(character))
     {
         dwarf->boostArmor(int(item.getBoost() * 1.1));
-    } else if (auto *paladin = dynamic_cast<Paladin *>(character))
+    } else if (auto* paladin = dynamic_cast<Paladin*>(character))
     {
         //same with paladins
         paladin->boostArmor(int(item.getBoost() * 1.3));
-    } else if (auto *dragonSlayer = dynamic_cast<DragonSlayer *>(character))
+    } else if (auto* dragonSlayer = dynamic_cast<DragonSlayer*>(character))
     {
         dragonSlayer->boostArmor(int(item.getBoost() * 1.5));
-    } else if (dynamic_cast<Dragon *>(character))
+    } else if (dynamic_cast<Dragon*>(character))
     {
         //dragons don't need defensive items
     }
 }
 
-void useHelpfulItem(Character *character, Item *item)
+void useHelpfulItem(Character* character, Item* item)
 {
-    if (auto *dwarf = dynamic_cast<Dwarf *>(character))
+    if (auto* dwarf = dynamic_cast<Dwarf*>(character))
     {
         dwarf->boostHitPoints(item->getBoost() * 2);
-    } else if (auto *paladin = dynamic_cast<Paladin *>(character))
+    } else if (auto* paladin = dynamic_cast<Paladin*>(character))
     {
         paladin->boostHitPoints(int(item->getBoost() * 1.5));
-    } else if (auto *dragonSlayer = dynamic_cast<DragonSlayer *>(character))
+    } else if (auto* dragonSlayer = dynamic_cast<DragonSlayer*>(character))
     {
         dragonSlayer->boostHitPoints(int(item->getBoost() * 1.25));
-    } else if (dynamic_cast<Dragon *>(character))
+    } else if (dynamic_cast<Dragon*>(character))
     {
         //dragons don't carry helpful items!
     }
 }
 
-void useAttackItem(Character *character, Item *item)
+void useAttackItem(Character* character, Item* item)
 {
-    if (auto *dwarf = dynamic_cast<Dwarf *>(character))
+    if (auto* dwarf = dynamic_cast<Dwarf*>(character))
     {
         dwarf->boostAttackDamage(int(item->getBoost() * 1.5));
-    } else if (auto *paladin = dynamic_cast<Paladin *>(character))
+    } else if (auto* paladin = dynamic_cast<Paladin*>(character))
     {
         paladin->boostAttackDamage(int(item->getBoost() * 1.33));
-    } else if (auto *dragonSlayer = dynamic_cast<DragonSlayer *>(character))
+    } else if (auto* dragonSlayer = dynamic_cast<DragonSlayer*>(character))
     {
         //DragonSlayers get a 10x boost when attacking dragons, from their attack item.
         //so their attack item should boost their attack damage by a factor of 10
         //this means you need to GET the attack damage, multiply it by the item's boost, and BOOST the attackDamage with that multiplied value.  
         //check Character.h for available member functions you can use.
         dragonSlayer->boostAttackDamage(item->getBoost() * dragonSlayer->getAttackDamage());
-    } else if (dynamic_cast<Dragon *>(character))
+    } else if (dynamic_cast<Dragon*>(character))
     {
         //dragons don't carry attack items!
     }

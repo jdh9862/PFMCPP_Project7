@@ -103,8 +103,8 @@ int main()
 
     std::cout << std::endl << "end of battle stats:" << std::endl;
 
-    std::vector<Character *> characters{&dwarf, &paladin, &dragon, &dragonSlayer};
-    for (auto *character: characters)
+    std::vector<Character*> characters{&dwarf, &paladin, &dragon, &dragonSlayer};
+    for (auto* character: characters)
         character->printStats();
 
     return 0;

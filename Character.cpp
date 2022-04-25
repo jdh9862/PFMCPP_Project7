@@ -39,7 +39,7 @@ void Character::defend()
     std::cout << getName() << " is defending!!" << std::endl;
     for (auto &item: defensiveItems)
     {
-        if (auto *defensiveItem = dynamic_cast<DefensiveItem *>(item.get()))
+        if (auto *defensiveItem = dynamic_cast<DefensiveItem*>(item.get()))
         {
             defensiveItem->use(this);
             item.reset(); //can only be used once!
@@ -54,7 +54,7 @@ void Character::help(Character &other)
     std::cout << getName() << " is going to help " << other.getName() << std::endl;
     for (auto &item: helpfulItems)
     {
-        if (auto *helpfulItem = dynamic_cast<HelpfulItem *>(item.get()))
+        if (auto *helpfulItem = dynamic_cast<HelpfulItem*>(item.get()))
         {
             helpfulItem->use(&other);
             item.reset(); //can only be used once!
