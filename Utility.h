@@ -13,8 +13,8 @@ struct Character;
 
 std::string getCharacterStats(Character* ch);
 
-void useDefensiveItem(Character *, Item &);
+void useDefensiveItem(Character*, Item&);
 
-void useHelpfulItem(Character *, Item *);
+void useHelpfulItem(Character*, Item*);
 
-void useAttackItem(Character *, Item *);
+void useAttackItem(Character*, Item*);

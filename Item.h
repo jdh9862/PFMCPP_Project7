@@ -8,11 +8,11 @@ struct Item
 {
     virtual ~Item();
 
-    virtual void use(Character *) = 0;
+    virtual void use(Character*) = 0;
 
-    Item(const std::string &name_, int effect);
+    Item(const std::string& name_, int effect);
 
-    inline const std::string &getName() { return name; }
+    inline const std::string& getName() { return name; }
 
     inline int getBoost() const { return boost; }
 

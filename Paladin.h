@@ -8,7 +8,7 @@ struct Paladin : Character
 
     ~Paladin() override;
 
-    const std::string &getName() override;
+    const std::string& getName() override;
 
     std::string getStats() override;
 

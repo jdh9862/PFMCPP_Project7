@@ -5,17 +5,14 @@
 #include "DefensiveItem.h"
 #include "HelpfulItem.h"
 
-Character::Character(int hp, int armor_, int attackDamage_) :
-        hitPoints(hp),
-        armor(armor_),
-        attackDamage(attackDamage_)
+Character::Character(int hp, int armor_, int attackDamage_) : hitPoints(hp), armor(armor_), attackDamage(attackDamage_)
 {
     initialHitPoints.reset(new int(hitPoints));
     initialArmorLevel.reset(new int(armor));
     initialAttackDamage.reset(new int(attackDamage));
 }
 
-void Character::attack(Character &other)
+void Character::attack(Character& other)
 {
     if (hitPoints <= 0)
     {
@@ -37,9 +34,9 @@ void Character::attack(Character &other)
 void Character::defend()
 {
     std::cout << getName() << " is defending!!" << std::endl;
-    for (auto &item: defensiveItems)
+    for (auto& item: defensiveItems)
     {
-        if (auto *defensiveItem = dynamic_cast<DefensiveItem*>(item.get()))
+        if (auto* defensiveItem = dynamic_cast<DefensiveItem*>(item.get()))
         {
             defensiveItem->use(this);
             item.reset(); //can only be used once!
@@ -49,12 +46,12 @@ void Character::defend()
     isDefending = true;
 }
 
-void Character::help(Character &other)
+void Character::help(Character& other)
 {
     std::cout << getName() << " is going to help " << other.getName() << std::endl;
-    for (auto &item: helpfulItems)
+    for (auto& item: helpfulItems)
     {
-        if (auto *helpfulItem = dynamic_cast<HelpfulItem*>(item.get()))
+        if (auto* helpfulItem = dynamic_cast<HelpfulItem*>(item.get()))
         {
             helpfulItem->use(&other);
             item.reset(); //can only be used once!
@@ -69,7 +66,8 @@ int Character::takeDamage(int damage)
     if (damage < armor)
     {
         armor -= damage;
-    } else
+    }
+    else
     {
         damage -= armor;
         armor = 0;
@@ -85,10 +83,7 @@ int Character::takeDamage(int damage)
     return hitPoints;
 }
 
-
-#include <cassert>
-
-void Character::attackInternal(Character &other)
+void Character::attackInternal(Character& other)
 {
     if (other.hitPoints <= 0)
     {
@@ -106,7 +101,7 @@ void Character::attackInternal(Character &other)
     }
 }
 
-void Character::updateStat(int &currentValue, std::unique_ptr<int> &initialValue)
+void Character::updateStat(int& currentValue, std::unique_ptr<int>& initialValue)
 {
     if (currentValue < *initialValue)
     {

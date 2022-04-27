@@ -18,15 +18,15 @@ struct Character
      derived class stores the name, not the base class.
      */
 
-    virtual const std::string &getName() = 0;
+    virtual const std::string& getName() = 0;
 
     virtual std::string getStats() = 0;
 
-    virtual void attack(Character &other);
+    virtual void attack(Character& other);
 
     void defend();
 
-    void help(Character &other);
+    void help(Character& other);
 
     int takeDamage(int damage);
 
@@ -38,9 +38,9 @@ struct Character
 
     bool getIsDefending() const { return isDefending; }
 
-    const std::vector<std::unique_ptr<Item>> &getHelpfulItems() const { return helpfulItems; }
+    const std::vector<std::unique_ptr<Item>>& getHelpfulItems() const { return helpfulItems; }
 
-    const std::vector<std::unique_ptr<Item>> &getDefensiveItems() const { return defensiveItems; }
+    const std::vector<std::unique_ptr<Item>>& getDefensiveItems() const { return defensiveItems; }
 
     void boostArmor(int amount)
     {
@@ -71,7 +71,7 @@ protected:
 private:
     std::unique_ptr<int> initialHitPoints, initialArmorLevel, initialAttackDamage;
 
-    void attackInternal(Character &other);
+    void attackInternal(Character& other);
 
-    static void updateStat(int &currentValue, std::unique_ptr<int> &initialValue);
+    static void updateStat(int& currentValue, std::unique_ptr<int>& initialValue);
 };
