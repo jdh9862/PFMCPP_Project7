@@ -55,7 +55,6 @@ it's very easy to mess this task up.
     check each source file for things being included that aren't used.
  */
 
-#include "Item.h"
 #include "Character.h"
 #include "Dwarf.h"
 #include "Paladin.h"
@@ -78,36 +77,36 @@ it's very easy to mess this task up.
 //==========================================================
 int main()
 {
-                      //name, hit points, armor. 
-    Dwarf dwarf { "Maldin the Dwarf", 3, 1 };
-    Paladin paladin { "Warrick the Paladin", 5, 2 };
-    Dragon dragon { "Garry The Dragon", 200, 50 };
-    DragonSlayer dragonSlayer { "Virgil the Dragon Slayer", 8, 5 };
-    
+    //name, hit points, armor.
+    Dwarf dwarf{"Maldin the Dwarf", 3, 1};
+    Paladin paladin{"Warrick the Paladin", 5, 2};
+    Dragon dragon{"Garry The Dragon", 200, 50};
+    DragonSlayer dragonSlayer{"Virgil the Dragon Slayer", 8, 5};
+
     std::cout << "\nstart of battle" << std::endl;
 
     paladin.defend();
-    dragon.attack( paladin );
-    dwarf.attack( dragon );
-    paladin.attack( dragon ); //can't, he's dead
-    
-    dragonSlayer.help( paladin ); //now he's not dead
-    paladin.attack( dragon ); //he's alive now.
-    dragon.attack( dwarf ); //dwarf is dead
+    dragon.attack(paladin);
+    dwarf.attack(dragon);
+    paladin.attack(dragon); //can't, he's dead
+
+    dragonSlayer.help(paladin); //now he's not dead
+    paladin.attack(dragon); //he's alive now.
+    dragon.attack(dwarf); //dwarf is dead
     paladin.help(dwarf); //dwarf is alive now.
-    
-    dragon.attack( dragonSlayer ); //he dodges
-    dragonSlayer.attack( dragon ); //dragon is slayed.
+
+    dragon.attack(dragonSlayer); //he dodges
+    dragonSlayer.attack(dragon); //dragon is slayed.
     //the dragon slayer has no friends and kills everyone 
-    dragonSlayer.attack( paladin );
-    dragonSlayer.attack( dwarf ); 
-    
+    dragonSlayer.attack(paladin);
+    dragonSlayer.attack(dwarf);
+
     std::cout << std::endl << "end of battle stats:" << std::endl;
-    
-    std::vector<Character*> characters { &dwarf, &paladin, &dragon, &dragonSlayer };
-    for( auto* character : characters )
+
+    std::vector<Character*> characters{&dwarf, &paladin, &dragon, &dragonSlayer};
+    for (auto* character: characters)
         character->printStats();
-    
+
     return 0;
 }
 
