@@ -73,5 +73,5 @@ private:
 
     void attackInternal(Character& other);
 
-    static void updateStat(int& currentValue, std::unique_ptr<int>& initialValue);
+    static void updateStat(int& currentValue, int& initialValue);
 };
